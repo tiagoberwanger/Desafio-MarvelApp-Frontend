@@ -1,12 +1,12 @@
 import React from 'react';
 // import { Link } from 'react-router-dom'
 
-function Home () {
+function Profile () {
   return (
     <div>
-      Home
+      Profile
     </div>
   );
 };
 
-export default Home;
+export default Profile;
