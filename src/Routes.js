@@ -6,6 +6,8 @@ import Profile from './components/Profile';
 import Home from './components/Home';
 import Comics from './components/Comics';
 import Characters from './components/Characters';
+import DetailedCom from './components/DetailedCom';
+import DetailedChar from './components/DetailedChar';
 
 function Routes() {
   return (
@@ -15,7 +17,9 @@ function Routes() {
         <Route path="/register" component={ Register } />
         <Route path="/profile" component={ Profile } />
         <Route path="/home" component={ Home } />
+        <Route path="/comics/details" component={ DetailedCom } />
         <Route path="/comics" component={ Comics } />
+        <Route path="/characters/details" component={ DetailedChar } />
         <Route path="/characters" component={ Characters } />
         <Redirect from="/" to="/login" />
       </Switch>

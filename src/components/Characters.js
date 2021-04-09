@@ -40,7 +40,9 @@ function Characters () {
               <img key={`${index}-card-thumb`} className="card-img-top img-fluid" src={`${character.thumbnail.path}.jpg`} style={{height: '400px', objectFit: 'cover'}} alt="character" />
               <div key={`${index}-card-div`} className="card-body">
                 <h5 key={`${index}-card-name`} className="card-title">{character.name}</h5>
-                <button href="#" className="btn btn-dark">Saiba mais</button>
+                <Link to='/characters/details'>
+                  <button className="btn btn-dark">Saiba mais</button>
+                </Link>
               </div>
             </div>
             )

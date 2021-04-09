@@ -40,7 +40,9 @@ function Comics () {
             <img className="card-img-top img-fluid" src={`${comic.thumbnail.path}.jpg`} style={{height: '400px', objectFit: 'cover'}} alt="comic" />
             <div className="card-body">
                 <h5 className="card-title">{comic.title}</h5>
-                <button href="#" className="btn btn-dark">Saiba mais</button>
+                <Link to='/comics/details'>
+                  <button href="#" className="btn btn-dark">Saiba mais</button>
+                </Link>
             </div>
           </div>
           )
