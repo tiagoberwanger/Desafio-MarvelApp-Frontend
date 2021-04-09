@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 const axios = require('axios');
 
@@ -7,6 +7,12 @@ function Login () {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+
+
+  useEffect(() => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+  })
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -23,6 +29,7 @@ function Login () {
         .then((response) => {
           console.log(response.data);
           localStorage.setItem('token', JSON.stringify(response.data.token))
+          localStorage.setItem('user', JSON.stringify({email}))
           history.push('/home');
         })
         .catch((err) =>{

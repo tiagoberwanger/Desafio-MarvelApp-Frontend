@@ -24,6 +24,7 @@ function Register () {
       .then((response) => {
         console.log(response.data);
         localStorage.setItem('token', JSON.stringify(response.data.token))
+        localStorage.setItem('user', JSON.stringify({username, email}))
         history.push('/home');
       })
       .catch((err) =>{
