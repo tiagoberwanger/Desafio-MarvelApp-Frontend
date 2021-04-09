@@ -10,26 +10,31 @@ function Login () {
 
   const handleClick = (e) => {
     e.preventDefault();
-    axios({
-      method: 'post',
-      url: 'http://localhost:3001/login',
-      headers: {'Content-Type': 'application/json'}, 
-      data: {
-         email: email,
-         password: password
-      }
-    })
-      .then((response) => {
-        console.log(response.data);
-        localStorage.setItem('token', JSON.stringify(response.data.token))
-        history.push('/home');
-      })
-      .catch((err) =>{
-        if (err.response.status === 400) {
-          setError('Usuário não cadastrado!')
-          console.log('Usuário não cadastrado!')
+    try {
+      axios({
+        method: 'post',
+        url: 'http://localhost:3001/login',
+        headers: {'Content-Type': 'application/json'}, 
+        data: {
+           email: email,
+           password: password
         }
       })
+        .then((response) => {
+          console.log(response.data);
+          localStorage.setItem('token', JSON.stringify(response.data.token))
+          history.push('/home');
+        })
+        .catch((err) =>{
+          if (err && err.response.status === 400) {
+            setError('Usuário não cadastrado!')
+            console.log('Usuário não cadastrado!')
+          }
+        })
+    } catch (err) {
+      console.log(err.message)
+    }
+   
   }
 
   return (
