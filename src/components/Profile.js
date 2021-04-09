@@ -13,7 +13,9 @@ function Profile () {
 
   return (
     <div id="container" className="container-fluid">
-      <Link to='home'>Voltar</Link>
+      <Link to='home'>
+        <h4>Voltar</h4>
+      </Link>
       <div className="d-flex align-items-center justify-content-center">
         <div>
           <h1 className="m-5">Perfil</h1>

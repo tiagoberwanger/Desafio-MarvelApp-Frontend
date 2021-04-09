@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 const axios = require('axios');
 
 function Characters () {
@@ -28,6 +28,9 @@ function Characters () {
   return (
     loading ? <p>Loading...</p> : (
       <div className="container-fluid ml-4 mt-5">
+      <Link to='home'>
+        <h4>Voltar</h4>
+      </Link>
         <h1 className='text-center text-black'>Characters</h1>
         <div className="row">
           <div className="card-deck">
