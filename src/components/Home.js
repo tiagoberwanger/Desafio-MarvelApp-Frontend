@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom'
+import { Button, ButtonGroup } from 'react-bootstrap' 
 
 function Home () {
   const history = useHistory();
@@ -20,18 +21,14 @@ function Home () {
   }
 
   return (
-    <div className='container bg-light'>
+    <div className="container text-center">
       <h1 className='text-center text-black my-5'>Marvel App</h1>
-        <div className='text-center'>
-          <button onClick={() => handleProfile()} type='button' className='btn-lg btn btn-dark my-3'>Perfil</button>
-          <div className='d-flex justify-content-center'>
-            <button onClick={() => handleComics()} type='button' className='btn-lg btn btn-dark p-3 mr-3 my-3'>Comics</button>
-            <button onClick={() => handleCharacters()} type='button' className='btn-lg btn btn-dark p-3 my-3 ml-3'>Characters</button>
-          </div>
-          <div className="my-5">
-            <button onClick={() => handleLogout()} type='button' className='btn-lg btn btn-dark my-3'>Sair</button>
-          </div>
-        </div>
+        <ButtonGroup size="lg" vertical>
+          <Button className="mb-5" variant='secondary' onClick={() => handleProfile()}>Perfil</Button>
+          <Button className="mb-3" variant='dark' onClick={() => handleComics()}>Comics</Button>
+          <Button className="mb-3" variant='dark' onClick={() => handleCharacters()}>Characters</Button>
+          <Button className="mt-5" variant='danger' onClick={() => handleLogout()}>Sair</Button>
+        </ButtonGroup>
     </div>
   );
 }

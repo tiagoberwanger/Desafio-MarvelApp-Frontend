@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Form, Button, ButtonGroup } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
 const axios = require('axios');
 
@@ -45,25 +46,27 @@ function Login () {
   }
 
   return (
-    <div className="container">
-        <form>
+    <div className="container mt-5 text-center">
         <h1>Marvel App</h1>
-        <div className="form-group">
-          <label htmlFor="email-input">Email</label>
-          <input onChange={(e) => setEmail(e.target.value)} type="email" className="form-control" id="email-input" aria-describedby="email-help" placeholder="Digite seu email" />
-          <small id="email-help" className="form-text text-muted">Deve ser um email válido</small>
+        <Form className="mt-5">
+        <Form.Group className='col-lg-offset-12'>
+          <Form.Label htmlFor="email-input">Email</Form.Label>
+          <Form.Control type="email" placeholder="Digite seu email" onChange={(e) => setEmail(e.target.value)} />
+          <Form.Text id="email-help" className="text-muted">Deve ser um email válido</Form.Text>
+        </Form.Group>
           <span>{error}</span>
-        </div>
-        <div className="form-group">
-          <label htmlFor="password-input">Senha</label>
-          <input onChange={(e) => setPassword(e.target.value)} type="password" className="form-control" id="password-input" aria-describedby="password-help" placeholder="Digite sua senha" />
-          <small id="password-help" className="form-text text-muted">Deve ter no mínimo 6 caracteres</small>
-        </div>
-        <button onClick={(e) => handleClick(e)} className="btn btn-primary">Entrar</button>
-        <Link to='/register'>
-          <button type="button" className="btn btn-secondary">Ainda não tenho conta</button>
-        </Link>
-      </form>
+        <Form.Group className='col-lg-offset-12'>
+          <Form.Label htmlFor="password-input">Senha</Form.Label>
+          <Form.Control type="password" placeholder="Digite sua senha" onChange={(e) => setPassword(e.target.value)} />
+          <Form.Text id="password-help" className="form-text text-muted">Deve ter no mínimo 6 caracteres</Form.Text>
+        </Form.Group>
+        <ButtonGroup size="lg" vertical>
+          <Button variant='success' className='mb-2' onClick={(e) => handleClick(e)}>Entrar</Button>
+          <Link to='/register'>
+            <Button type="button" variant='secondary'>Ainda não tenho conta</Button>
+          </Link>
+        </ButtonGroup>
+      </Form>
     </div>
   );
 };

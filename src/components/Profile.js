@@ -12,15 +12,15 @@ function Profile () {
   }, [])
 
   return (
-    <div id="container" className="container-fluid">
+    <div className="container mt-5">
       <Link to='home'>
-        <h4>Voltar</h4>
+        <h5>Voltar</h5>
       </Link>
-      <div className="d-flex align-items-center justify-content-center">
+      <div className="text-center">
         <div>
-          <h1 className="m-5">Perfil</h1>
-          <h3 className="m-3">Nome: {profileName ? profileName : 'Nome não cadastrado'}</h3>
-          <h3 className="m-3">Email: {profileEmail}</h3>
+          <h1 className="mb-5">Perfil</h1>
+          <h5>Nome: {profileName ? profileName : 'Nome não cadastrado'}</h5>
+          <h5>Email: {profileEmail}</h5>
         </div>
       </div>
     </div>

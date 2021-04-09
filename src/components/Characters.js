@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Card, Button, CardColumns } from 'react-bootstrap';
 const axios = require('axios');
 
 function Characters () {
@@ -27,31 +28,30 @@ function Characters () {
 
   return (
     loading ? <p>Loading...</p> : (
-      <div className="container-fluid ml-4 mt-5">
+      <div className="container mt-5">
       <Link to='home'>
-        <h4>Voltar</h4>
+        <h5>Voltar</h5>
       </Link>
         <h1 className='text-center text-black'>Characters</h1>
-        <div className="row">
-          <div className="card-deck">
+        <div className="row ml-3">
+         <CardColumns>
           {characters.map((character, index) => {
-            return (
-            <div key={`${index}-card-main-div`} className="card mb-4" style={{minWidth: '18rem', maxWidth: '18rem'}}>
-              <img key={`${index}-card-thumb`} className="card-img-top img-fluid" src={`${character.thumbnail.path}.jpg`} style={{height: '400px', objectFit: 'cover'}} alt="character" />
-              <div key={`${index}-card-div`} className="card-body">
-                <h5 key={`${index}-card-name`} className="card-title">{character.name}</h5>
-                <Link to='/characters/details'>
-                  <button className="btn btn-dark">Saiba mais</button>
-                </Link>
-              </div>
-            </div>
-            )
-            })}
-          </div>
+              return (
+                <Card key={`${index}-card-main-div`} style={{ width: '18rem' }}>
+                  <Card.Img key={`${index}-card-thumb`} variant="top" src={`${character.thumbnail.path}.jpg`} />
+                  <Card.Body key={`${index}-card-div`}>
+                    <Card.Title key={`${index}-card-name`}>{character.name}</Card.Title>
+                    <Link to='/characters/details'>
+                      <Button className="btn btn-dark" variant="primary">Detalhes</Button>
+                    </Link>
+                  </Card.Body>
+                </Card>
+              )
+              })}
+         </CardColumns>
         </div>
       </div>
   ));
 }
 
 export default Characters;
-

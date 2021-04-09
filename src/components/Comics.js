@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Card, Button, CardColumns } from 'react-bootstrap';
 const axios = require('axios');
 
 function Comics () {
@@ -27,27 +28,27 @@ function Comics () {
 
   return (
     loading ? <p>Loading...</p> : (
-    <div className="container-fluid ml-4 mt-5">
+    <div className="container mt-5">
       <Link to='home'>
-        <h4>Voltar</h4>
+        <h5>Voltar</h5>
       </Link>
       <h1 className='text-center text-black'>Comics</h1>
-      <div className="row">
-        <div className="card-deck">
+      <div className="row ml-3">
+      <CardColumns>
         {comics.map((comic, index) => {
           return (
-          <div className="card mb-4" style={{minWidth: '18rem', maxWidth: '18rem'}}>
-            <img className="card-img-top img-fluid" src={`${comic.thumbnail.path}.jpg`} style={{height: '400px', objectFit: 'cover'}} alt="comic" />
-            <div className="card-body">
-                <h5 className="card-title">{comic.title}</h5>
+            <Card key={`${index}-card-main-div`} style={{ width: '18rem' }}>
+              <Card.Img key={`${index}-card-thumb`} variant="top" src={`${comic.thumbnail.path}.jpg`} />
+              <Card.Body key={`${index}-card-div`}>
+                <Card.Title key={`${index}-card-title`}>{comic.title}</Card.Title>
                 <Link to='/comics/details'>
-                  <button href="#" className="btn btn-dark">Saiba mais</button>
+                  <Button className="btn btn-dark" variant="primary">Detalhes</Button>
                 </Link>
-            </div>
-          </div>
+              </Card.Body>
+            </Card>
           )
           })}
-        </div>
+      </CardColumns>
       </div>
     </div>
   ));
