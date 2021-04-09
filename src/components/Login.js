@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Button, ButtonGroup } from 'react-bootstrap';
+import { Form, Button, ButtonGroup, Image } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
 const axios = require('axios');
 
@@ -46,8 +46,8 @@ function Login () {
   }
 
   return (
-    <div className="container mt-5 text-center">
-        <h1>Marvel App</h1>
+    <div className="container mt-5 p-5 text-center bg-light">
+        <Image src='marvel-logo.png' fluid />
         <Form className="mt-5">
         <Form.Group className='col-lg-offset-12'>
           <Form.Label htmlFor="email-input">Email</Form.Label>
@@ -61,7 +61,7 @@ function Login () {
           <Form.Text id="password-help" className="form-text text-muted">Deve ter no mínimo 6 caracteres</Form.Text>
         </Form.Group>
         <ButtonGroup size="lg" vertical>
-          <Button variant='success' className='mb-2' onClick={(e) => handleClick(e)}>Entrar</Button>
+          <Button variant='dark' className='mb-2' onClick={(e) => handleClick(e)}>Entrar</Button>
           <Link to='/register'>
             <Button type="button" variant='secondary'>Ainda não tenho conta</Button>
           </Link>

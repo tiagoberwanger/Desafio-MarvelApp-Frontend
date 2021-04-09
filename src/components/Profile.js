@@ -12,7 +12,7 @@ function Profile () {
   }, [])
 
   return (
-    <div className="container mt-5">
+    <div className="container pt-2 pb-5 mt-5">
       <Link to='home'>
         <h5>Voltar</h5>
       </Link>

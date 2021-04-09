@@ -21,7 +21,7 @@ function Home () {
   }
 
   return (
-    <div className="container text-center">
+    <div className="container pb-5 text-center">
       <h1 className='text-center text-black my-5'>Marvel App</h1>
         <ButtonGroup size="lg" vertical>
           <Button className="mb-5" variant='secondary' onClick={() => handleProfile()}>Perfil</Button>
