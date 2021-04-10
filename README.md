@@ -1,6 +1,6 @@
 # Marvel App - Frontend
 
-## Aplicação frontend para renderizar a visualização dos resultados da aplicação da [Marvel](https://developer.marvel.com/)
+### Aplicação frontend para renderizar a visualização dos resultados da aplicação da [Marvel](https://developer.marvel.com/)
 
 # Tabela de Conteúdos
 
@@ -19,23 +19,23 @@
 
 # Demonstração da Aplicação
 
-### GIF DA APLICAÇÂO
+(GIF DA APLICAÇÂO)
 
 # Pré-requisitos e como rodar a aplicação localmente
 
-## Clone este repositório
+### Clone este repositório
 $ git clone <https://github.com/tiagoberwanger/Desafio-Stone-Frontend.git>
 
-## Acesse a pasta do projeto no terminal/cmd
+### Acesse a pasta do projeto no terminal/cmd
 $ cd Desafio-Stone-Frontend/
 
-## Instale as dependências
+### Instale as dependências
 $ npm install
 
-## Execute a aplicação 
+### Execute a aplicação 
 $ npm start
 
-## O servidor inciará na porta:3000 - acesse <http://localhost:3000>
+### O servidor inciará na porta:3000 - acesse <http://localhost:3000>
 
 # 🛠 Tecnologias
 
@@ -45,13 +45,12 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [React Bootstrap](https://react-bootstrap.github.io/)
 - [Axios](https://github.com/axios/axios)
 
-# Autor
+## Autor
 
-## Tiago Berwanger
+### Tiago Berwanger
 [![Github Badge](https://img.shields.io/badge/-Github-000?style=flat-square&logo=Github&logoColor=white&link=https://github.com/lucasgdb)](https://github.com/tiagoberwanger)
 [![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/lucas-bittencourt/)](https://www.linkedin.com/in/tiago-berwanger/)
 [![Gmail Badge](https://img.shields.io/badge/-Gmail-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:berwangertiago@gmail.com)](mailto:berwangertiago@gmail.com)
 
-# Licença
-Copyright (c) <2021> <Tiago Berwanger>
-(https://img.shields.io/github/license/tiagoberwanger/Desafio-Stone-Frontend)
+## Licença
+[Copyright (c) <2021> <Tiago Berwanger>](https://img.shields.io/github/license/tiagoberwanger/Desafio-Stone-Frontend)
