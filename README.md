@@ -1,22 +1,57 @@
-# Desafio Stone - Frontend
-# Logo ou Banner
+# Marvel App - Frontend
 
-<div style="position: relative; width: 100%; height: 0; padding-top: 40.2000%;
- padding-bottom: 48px; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
- border-radius: 8px; will-change: transform;">
-  <iframe style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-    src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAEbR1E1V24&#x2F;view?embed">
-  </iframe>
-</div>
-<a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAEbR1E1V24&#x2F;view?utm_content=DAEbR1E1V24&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">Cópia de APP</a> de Tiago Berwanger
-# Título e Descrição
-# Badges
-# Status do Projeto
+## Aplicação frontend para renderizar a visualização dos resultados da aplicação da [Marvel](https://developer.marvel.com/)
+
 # Tabela de Conteúdos
-# Features
+
+### Features
+
+- [x] Página de login com autenticação.
+- [x] Página de registro de novo usuário.
+- [x] Homepage com rotas para perfil, comics, characters e logout.
+- [x] Página de perfil do usuário
+- [x] Página de visualização de todos os comics
+- [x] Página de visualização de todos os characteres
+- [x] Página de detalhes de um comic específico
+- [x] Página de detalhes de um character específico
+- [ ] Opção de favoritar comic
+- [ ] Opção de favoritar character
+
 # Demonstração da Aplicação
-# Pré-requisitos e como rodar a aplicação/testes
-# Tecnologias utilizadas
-# Contribuição
+
+### GIF DA APLICAÇÂO
+
+# Pré-requisitos e como rodar a aplicação localmente
+
+## Clone este repositório
+$ git clone <https://github.com/tiagoberwanger/Desafio-Stone-Frontend.git>
+
+## Acesse a pasta do projeto no terminal/cmd
+$ cd Desafio-Stone-Frontend/
+
+## Instale as dependências
+$ npm install
+
+## Execute a aplicação 
+$ npm start
+
+## O servidor inciará na porta:3000 - acesse <http://localhost:3000>
+
+# 🛠 Tecnologias
+
+As seguintes ferramentas foram usadas na construção do projeto:
+
+- [React](https://pt-br.reactjs.org/)
+- [React Bootstrap](https://react-bootstrap.github.io/)
+- [Axios](https://github.com/axios/axios)
+
 # Autor
+
+## Tiago Berwanger
+[![Github Badge](https://img.shields.io/badge/-Github-000?style=flat-square&logo=Github&logoColor=white&link=https://github.com/lucasgdb)](https://github.com/tiagoberwanger)
+[![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/lucas-bittencourt/)](https://www.linkedin.com/in/tiago-berwanger/)
+[![Gmail Badge](https://img.shields.io/badge/-Gmail-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:berwangertiago@gmail.com)](mailto:berwangertiago@gmail.com)
+
 # Licença
+Copyright (c) <2021> <Tiago Berwanger>
+(https://img.shields.io/github/license/tiagoberwanger/Desafio-Stone-Frontend)
