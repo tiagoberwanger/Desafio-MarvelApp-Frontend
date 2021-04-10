@@ -17,9 +17,9 @@ function Routes() {
         <Route path="/register" component={ Register } />
         <Route path="/profile" component={ Profile } />
         <Route path="/home" component={ Home } />
-        <Route path="/comics/details" component={ DetailedCom } />
+        <Route path="/comics/:id" component={ DetailedCom } />
         <Route path="/comics" component={ Comics } />
-        <Route path="/characters/details" component={ DetailedChar } />
+        <Route path="/characters/:id" component={ DetailedChar } />
         <Route path="/characters" component={ Characters } />
         <Redirect from="/" to="/login" />
       </Switch>

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory} from 'react-router-dom';
 import { Card, Button, CardColumns } from 'react-bootstrap';
 const axios = require('axios');
 
 function Comics () {
-  // const history = useHistory();
+  const history = useHistory();
   const [loading, setLoading] = useState(true);
   const [comics, setComics] = useState(true);
 
@@ -41,9 +41,7 @@ function Comics () {
               <Card.Img key={`${index}-card-thumb`} variant="top" src={`${comic.thumbnail.path}.jpg`} />
               <Card.Body key={`${index}-card-div`}>
                 <Card.Title key={`${index}-card-title`}>{comic.title}</Card.Title>
-                <Link to='/comics/details'>
-                  <Button className="btn btn-dark" variant="primary">Detalhes</Button>
-                </Link>
+                  <Button onClick={() => history.push(`/comics/${comic.id}`)} className="btn btn-dark" variant="primary">Detalhes</Button>
               </Card.Body>
             </Card>
           )
