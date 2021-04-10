@@ -24,7 +24,7 @@ function DetailedCom() {
         console.log(localStorage.getItem('token'))
         console.log(err.message);
       })
-  }, [])
+  }, [id])
 
   return (
     loading ? <p>Loading...</p> : (

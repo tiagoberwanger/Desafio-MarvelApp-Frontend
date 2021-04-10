@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { Card, Button, CardColumns } from 'react-bootstrap';
 const axios = require('axios');
 
 function Characters () {
-  // const history = useHistory();
+  const history = useHistory();
   const [loading, setLoading] = useState(true);
   const [characters, setCharacters] = useState(true);
 
@@ -29,7 +29,7 @@ function Characters () {
   return (
     loading ? <p>Loading...</p> : (
       <div className="container mt-5 min-vh-100">
-      <Link to='home'>
+      <Link to='/characters'>
         <h5>Voltar</h5>
       </Link>
         <h1 className='text-center text-black'>Characters</h1>
@@ -41,9 +41,7 @@ function Characters () {
                   <Card.Img key={`${index}-card-thumb`} variant="top" src={`${character.thumbnail.path}.jpg`} />
                   <Card.Body key={`${index}-card-div`}>
                     <Card.Title key={`${index}-card-name`}>{character.name}</Card.Title>
-                    <Link to='/characters/details'>
-                      <Button className="btn btn-dark" variant="primary">Detalhes</Button>
-                    </Link>
+                      <Button onClick={() => history.push(`/characters/${character.id}`)} className="btn btn-dark" variant="primary">Detalhes</Button>
                   </Card.Body>
                 </Card>
               )
