@@ -29,7 +29,7 @@ function Characters () {
   return (
     loading ? <p>Loading...</p> : (
       <div className="container mt-5 min-vh-100">
-      <Link to='/characters'>
+      <Link to='/home'>
         <h5>Voltar</h5>
       </Link>
         <h1 className='text-center text-black'>Characters</h1>

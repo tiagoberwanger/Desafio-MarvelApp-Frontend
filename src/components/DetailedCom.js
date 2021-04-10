@@ -45,10 +45,16 @@ function DetailedCom() {
               </Card.Text>
             </Card.Body>
             <ListGroup className="list-group-flush">
-              <ListGroupItem>Cras justo odio</ListGroupItem>
-              <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-              <ListGroupItem>Vestibulum at eros</ListGroupItem>
+              <h5>Stories:</h5>
+              {comic[0].stories.items.map((item) => {
+                return (
+                  <ListGroupItem>{item.name}</ListGroupItem>
+                )
+              })}
             </ListGroup>
+            <Card.Body>
+              <Card.Link href={detail.urls[0].url} target="_blank">Mais detalhes</Card.Link>
+            </Card.Body>
           </Card>
         )})}
         </CardColumns>
