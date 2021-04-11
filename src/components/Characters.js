@@ -37,7 +37,7 @@ function Characters () {
                 <Card key={`${index}-card-main-div`} style={{ width: '18rem' }}>
                   <Card.Img key={`${index}-card-thumb`} variant="top" src={character.thumbnail.path+'.'+character.thumbnail.extension} />
                   <Card.Body key={`${index}-card-div`}>
-                    <Card.Title key={`${index}-card-name`}>{character.name}</Card.Title>
+                    <Card.Title key={`${index}-card-title`}>{character.name}</Card.Title>
                       <Button onClick={() => history.push(`/characters/${character.id}`)} className="btn btn-dark" variant="primary">Detalhes</Button>
                   </Card.Body>
                 </Card>

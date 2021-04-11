@@ -33,23 +33,23 @@ function DetailedCom() {
         {comic.map((detail, index) => {
         return (
           <Card className="card w-100">
-            <Card.Img variant="top" src={detail.thumbnail.path+'.'+detail.thumbnail.extension} />
-            <Card.Body>
-              <Card.Title>{detail.title}</Card.Title>
-              <Card.Text>
+            <Card.Img key={`${index}-card-thumb`} variant="top" src={detail.thumbnail.path+'.'+detail.thumbnail.extension} />
+            <Card.Body key={`${index}-card-body`}>
+              <Card.Title key={`${index}-card-title`}>{detail.title}</Card.Title>
+              <Card.Text key={`${index}-card-text`}>
                 {detail.description ? detail.description : 'No description!'}
               </Card.Text>
             </Card.Body>
-            <ListGroup className="list-group-flush">
+            <ListGroup key={`${index}-card-list`} className="list-group-flush">
               <h5>Stories:</h5>
-              {comic[0].stories.items.map((item) => {
+              {comic[0].stories.items.map((item, i) => {
                 return (
-                  <ListGroupItem>{item.name}</ListGroupItem>
+                  <ListGroupItem key={`${i}-card-item`}>{item.name}</ListGroupItem>
                 )
               })}
             </ListGroup>
-            <Card.Body>
-              <Card.Link href={detail.urls[0].url} target="_blank">Mais detalhes</Card.Link>
+            <Card.Body key={`${index}-card-body-2`}>
+              <Card.Link key={`${index}-card-link1`} href={detail.urls[0].url} target="_blank">Mais detalhes</Card.Link>
             </Card.Body>
           </Card>
         )})}
