@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: process.env.REACT_APP_BASE_URL || 'http://localhost:3001',
+  baseURL: process.env.REACT_APP_BASE_URL || 'https://marvel-app-bk.herokuapp.com/',
 });
 
 api.interceptors.request.use((config) => {
