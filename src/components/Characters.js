@@ -33,7 +33,7 @@ function Characters () {
         <h5>Voltar</h5>
       </Link>
         <h1 className='text-center text-black'>Characters</h1>
-        <div className="row ml-3">
+        <div className="column ml-3">
          <CardColumns>
           {characters.map((character, index) => {
               return (

@@ -32,11 +32,10 @@ function DetailedChar() {
       <Link to='/characters'>
         <h5>Voltar</h5>
       </Link>
-      <div className="row ml-3">
-      <CardColumns>
+      <div className="column m-5">
         {character.map((detail, index) => {
         return (
-          <Card style={{ width: '18rem' }}>
+          <Card className="card w-100">
             <Card.Img variant="top" src={`${detail.thumbnail.path}.jpg`} />
             <Card.Body>
               <Card.Title>{detail.name}</Card.Title>
@@ -58,7 +57,6 @@ function DetailedChar() {
             </Card.Body>
           </Card>
         )})}
-        </CardColumns>
       </div>
     </div>
   ));

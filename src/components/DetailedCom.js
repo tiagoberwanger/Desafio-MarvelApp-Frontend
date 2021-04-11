@@ -28,15 +28,14 @@ function DetailedCom() {
 
   return (
     loading ? <p>Loading...</p> : (
-    <div className="container mt-5 min-vh-100">
+    <div className="container mt-5">
       <Link to='/comics'>
         <h5>Voltar</h5>
       </Link>
-      <div className="row ml-3">
-      <CardColumns>
+      <div className="column m-5">
         {comic.map((detail, index) => {
         return (
-          <Card style={{ width: '18rem' }}>
+          <Card className="card w-100">
             <Card.Img variant="top" src={`${detail.thumbnail.path}.jpg`} />
             <Card.Body>
               <Card.Title>{detail.title}</Card.Title>
@@ -57,7 +56,6 @@ function DetailedCom() {
             </Card.Body>
           </Card>
         )})}
-        </CardColumns>
       </div>
     </div>
   ));

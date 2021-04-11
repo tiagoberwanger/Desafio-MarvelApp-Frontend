@@ -33,7 +33,7 @@ function Comics () {
         <h5>Voltar</h5>
       </Link>
       <h1 className='text-center text-black'>Comics</h1>
-      <div className="row ml-3">
+      <div className="column ml-3">
       <CardColumns>
         {comics.map((comic, index) => {
           return (
