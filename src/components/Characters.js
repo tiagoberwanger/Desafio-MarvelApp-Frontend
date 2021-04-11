@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Card, Button, CardColumns } from 'react-bootstrap';
-const axios = require('axios');
+import api from '../services/api';
 
 function Characters () {
   const history = useHistory();
@@ -10,18 +10,15 @@ function Characters () {
 
   useEffect(() => {
     setLoading(true);
-    axios({
-      method: 'get',
-      url: 'http://localhost:3001/characters',
-      headers: {'authorization': JSON.parse(localStorage.getItem('token'))}, 
-    })
+    api
+      .get('/characters')
       .then((response) => {
+        console.log(response);
         console.log(response.data);
         setCharacters(response.data);
         setLoading(false);
       })
       .catch((err) =>{
-        console.log(localStorage.getItem('token'))
         console.log(err.message);
       })
   }, [])
@@ -38,7 +35,7 @@ function Characters () {
           {characters.map((character, index) => {
               return (
                 <Card key={`${index}-card-main-div`} style={{ width: '18rem' }}>
-                  <Card.Img key={`${index}-card-thumb`} variant="top" src={`${character.thumbnail.path}.jpg`} />
+                  <Card.Img key={`${index}-card-thumb`} variant="top" src={character.thumbnail.path+'.'+character.thumbnail.extension} />
                   <Card.Body key={`${index}-card-div`}>
                     <Card.Title key={`${index}-card-name`}>{character.name}</Card.Title>
                       <Button onClick={() => history.push(`/characters/${character.id}`)} className="btn btn-dark" variant="primary">Detalhes</Button>

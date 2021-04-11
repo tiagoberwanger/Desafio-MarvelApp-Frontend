@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Button, ButtonGroup, Image } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
-const axios = require('axios');
+import api from '../services/api';
 
 function Login () {
   const history = useHistory();
@@ -17,16 +17,14 @@ function Login () {
 
   const handleClick = (e) => {
     e.preventDefault();
+    const bodyObj = {
+      email,
+      password
+    }
+
     try {
-      axios({
-        method: 'post',
-        url: 'http://localhost:3001/login',
-        headers: {'Content-Type': 'application/json'}, 
-        data: {
-           email: email,
-           password: password
-        }
-      })
+      api
+        .post('/login', bodyObj)
         .then((response) => {
           console.log(response.data);
           localStorage.setItem('token', JSON.stringify(response.data.token))

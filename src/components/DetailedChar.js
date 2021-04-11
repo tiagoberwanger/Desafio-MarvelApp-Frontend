@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { Card, CardColumns, ListGroup, ListGroupItem } from 'react-bootstrap';
-const axios = require('axios');
+import { Card, ListGroup, ListGroupItem } from 'react-bootstrap';
+import api from '../services/api';
 
 function DetailedChar() {
   const { id } = useParams(); 
@@ -10,11 +10,8 @@ function DetailedChar() {
 
   useEffect(() => {
     setLoading(true);
-    axios({
-      method: 'get',
-      url: `http://localhost:3001/characters/${id}`,
-      headers: {'authorization': JSON.parse(localStorage.getItem('token'))}, 
-    })
+    api
+      .get(`/characters/${id}`)
       .then((response) => {
         console.log(response.data);
         setCharacter(response.data);
@@ -36,7 +33,7 @@ function DetailedChar() {
         {character.map((detail, index) => {
         return (
           <Card className="card w-100">
-            <Card.Img variant="top" src={`${detail.thumbnail.path}.jpg`} />
+            <Card.Img variant="top" src={detail.thumbnail.path+'.'+detail.thumbnail.extension} />
             <Card.Body>
               <Card.Title>{detail.name}</Card.Title>
               <Card.Text>

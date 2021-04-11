@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Form, Button, ButtonGroup } from 'react-bootstrap';
-const axios = require('axios');
+import api from '../services/api';
 
 function Register () {
   const history = useHistory();
@@ -12,16 +12,13 @@ function Register () {
 
   const handleClick = (e) => {
     e.preventDefault();
-    axios({
-      method: 'post',
-      url: 'http://localhost:3001/user',
-      headers: {'Content-Type': 'application/json'}, 
-      data: {
-        username: username,
-        email: email,
-        password: password
-      }
-    })
+    const bodyObj = {
+      username,
+      email,
+      password
+    }
+    api
+    .post('/register', bodyObj)
       .then((response) => {
         console.log(response.data);
         localStorage.setItem('token', JSON.stringify(response.data.token))

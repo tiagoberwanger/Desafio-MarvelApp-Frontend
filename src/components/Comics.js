@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory} from 'react-router-dom';
 import { Card, Button, CardColumns } from 'react-bootstrap';
-const axios = require('axios');
+import api from '../services/api';
 
 function Comics () {
   const history = useHistory();
@@ -10,18 +10,15 @@ function Comics () {
 
   useEffect(() => {
     setLoading(true);
-    axios({
-      method: 'get',
-      url: 'http://localhost:3001/comics',
-      headers: {'authorization': JSON.parse(localStorage.getItem('token'))}, 
-    })
+    api
+      .get('/comics')
       .then((response) => {
         console.log(response.data);
         setComics(response.data)
         setLoading(false);
       })
       .catch((err) =>{
-        console.log(localStorage.getItem('token'))
+
         console.log(err.message);
       })
   }, [])
@@ -33,7 +30,7 @@ function Comics () {
         <h5>Voltar</h5>
       </Link>
       <h1 className='text-center text-black'>Comics</h1>
-      <div className="column ml-3">
+      <div className="row ml-3">
       <CardColumns>
         {comics.map((comic, index) => {
           return (
