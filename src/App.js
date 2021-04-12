@@ -3,7 +3,7 @@ import Routes from './Routes.js'
 
 function App() {
   return (
-    <div>
+    <div style={{backgroundImage: 'url(./marvel-bg2.png)'}} >
       <Routes />
     </div>
   );

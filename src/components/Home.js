@@ -21,13 +21,15 @@ function Home () {
   }
 
   return (
-    <div className="container pt-5 pb-5 text-center my-5">
+    <div className="container">
+      <div className='text-center p-5'>
         <ButtonGroup size="lg" vertical>
           <Button className="mb-5" variant='secondary' onClick={() => handleProfile()}>Perfil</Button>
           <Button className="mb-3" variant='dark' onClick={() => handleComics()}>Comics</Button>
           <Button className="mb-3" variant='dark' onClick={() => handleCharacters()}>Characters</Button>
           <Button className="mt-5" variant='danger' onClick={() => handleLogout()}>Sair</Button>
         </ButtonGroup>
+      </div>
     </div>
   );
 }

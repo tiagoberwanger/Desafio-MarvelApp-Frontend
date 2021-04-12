@@ -23,14 +23,14 @@ function DetailedCom() {
 
   return (
     loading ? <p>Loading...</p> : (
-    <div className="container mt-5">
+    <div className="container min-vh-100 vw-75">
       <Link to='/comics'>
         <h5>Voltar</h5>
       </Link>
       <div className="column m-5">
         {comic.map((detail, index) => {
         return (
-          <Card className="card w-100">
+          <Card className="card w-100 p-2 border border-dark rounded">
             <Card.Img key={`${index}-card-thumb`} variant="top" src={detail.thumbnail.path+'.'+detail.thumbnail.extension} />
             <Card.Body key={`${index}-card-body`}>
               <Card.Title key={`${index}-card-title`}>{detail.title}</Card.Title>

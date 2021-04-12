@@ -23,16 +23,16 @@ function Characters () {
 
   return (
     loading ? <p>Loading...</p> : (
-      <div className="container mt-5 min-vh-100">
+      <div className="container min-vh-100">
       <Link to='/home'>
         <h5>Voltar</h5>
       </Link>
-        <h1 className='text-center text-black'>Characters</h1>
+        <h1 className='text-center text-black font-weight-bold'>Characters</h1>
         <div className="column ml-3">
          <CardColumns>
           {characters.map((character, index) => {
               return (
-                <Card key={`${index}-card-main-div`} style={{ width: '18rem' }}>
+                <Card key={`${index}-card-main-div`} style={{ width: '18rem' }} className='card w-100 border border-dark rounded'>
                   <Card.Img key={`${index}-card-thumb`} variant="top" src={character.thumbnail.path+'.'+character.thumbnail.extension} />
                   <Card.Body key={`${index}-card-div`}>
                     <Card.Title key={`${index}-card-title`}>{character.name}</Card.Title>

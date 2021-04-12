@@ -42,27 +42,34 @@ function Login () {
   }
 
   return (
-    <div className="container mt-5 p-5 text-center bg-light">
-        <Image src='marvel-logo.png' fluid />
-        <Form className="mt-5">
+    <div className="container bg-light">
+      <div className="text-center vh-100 p-3">
+        <Image className="pt-3 img-responsive" src='marvel-logo.png' thumbnail />
+        <Form>
         <Form.Group className='col-lg-offset-12'>
-          <Form.Label htmlFor="email-input">Email</Form.Label>
-          <Form.Control type="email" placeholder="Digite seu email" onChange={(e) => setEmail(e.target.value)} />
+          <Form.Label column="lg" htmlFor="email-input">Email</Form.Label>
+          <Form.Control size="lg" type="email" placeholder="Digite seu email" onChange={(e) => setEmail(e.target.value)} />
           <Form.Text id="email-help" className="text-muted">Deve ser um email válido</Form.Text>
         </Form.Group>
           <span>{error}</span>
         <Form.Group className='col-lg-offset-12'>
-          <Form.Label htmlFor="password-input">Senha</Form.Label>
-          <Form.Control type="password" placeholder="Digite sua senha" onChange={(e) => setPassword(e.target.value)} />
+          <Form.Label column="lg" htmlFor="password-input">Senha</Form.Label>
+          <Form.Control size="lg" type="password" placeholder="Digite sua senha" onChange={(e) => setPassword(e.target.value)} />
           <Form.Text id="password-help" className="form-text text-muted">Deve ter no mínimo 6 caracteres</Form.Text>
         </Form.Group>
         <ButtonGroup size="lg" vertical>
-          <Button variant='dark' className='mb-2' onClick={(e) => handleClick(e)}>Entrar</Button>
+          <Button variant='dark' className='mb-1' onClick={(e) => handleClick(e)}>Entrar</Button>
           <Link to='/register'>
             <Button type="button" variant='secondary'>Ainda não tenho conta</Button>
           </Link>
         </ButtonGroup>
       </Form>
+      </div>
+      <footer className="blockquote-footer text-center">
+        <small className="text-muted">
+          Desenvolvido por <cite title="Source Title">Tiago Berwanger </cite>
+        </small>
+      </footer>
     </div>
   );
 };

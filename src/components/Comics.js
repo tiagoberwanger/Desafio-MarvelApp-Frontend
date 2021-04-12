@@ -24,16 +24,16 @@ function Comics () {
 
   return (
     loading ? <p>Loading...</p> : (
-    <div className="container mt-5 min-vh-100">
+    <div className="container min-vh-100 vw-75">
       <Link to='home'>
         <h5>Voltar</h5>
       </Link>
-      <h1 className='text-center text-black'>Comics</h1>
-      <div className="row ml-3">
+      <h1 className='text-center text-black font-weight-bold'>Comics</h1>
+      <div className="column ml-3">
       <CardColumns>
         {comics.map((comic, index) => {
           return (
-            <Card key={`${index}-card-main-div`} style={{ width: '18rem' }}>
+            <Card key={`${index}-card-main-div`} style={{ width: '18rem' }} className='card w-100 border border-dark rounded'>
               <Card.Img key={`${index}-card-thumb`} variant="top" src={`${comic.thumbnail.path}.jpg`} />
               <Card.Body key={`${index}-card-div`}>
                 <Card.Title key={`${index}-card-title`}>{comic.title}</Card.Title>
