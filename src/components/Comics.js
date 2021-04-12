@@ -24,7 +24,7 @@ function Comics () {
 
   return (
     loading ? <p>Loading...</p> : (
-    <div className="container min-vh-100 vw-75">
+    <div className="container min-vh-100">
       <Link to='home'>
         <h5>Voltar</h5>
       </Link>
