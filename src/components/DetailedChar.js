@@ -48,7 +48,6 @@ function DetailedChar() {
             </ListGroup>
             <Card.Body key={`${index}-card-body-2`}>
               <Card.Link key={`${index}-card-link1`} href={detail.urls[0].url} target="_blank">Mais detalhes</Card.Link>
-              <Card.Link key={`${index}-card-link2`} href={detail.urls[2].url} target="_blank">Comics</Card.Link>
             </Card.Body>
           </Card>
         )})}
