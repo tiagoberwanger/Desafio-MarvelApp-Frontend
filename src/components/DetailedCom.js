@@ -13,12 +13,10 @@ function DetailedCom() {
     api
       .get(`/comics/${id}`)
       .then((response) => {
-        console.log(response.data);
         setComic(response.data)
         setLoading(false);
       })
       .catch((err) =>{
-        console.log(localStorage.getItem('token'))
         console.log(err.message);
       })
   }, [id])

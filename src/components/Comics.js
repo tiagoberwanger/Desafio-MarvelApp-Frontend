@@ -13,7 +13,6 @@ function Comics () {
     api
       .get('/comics')
       .then((response) => {
-        console.log(response.data);
         setComics(response.data)
         setLoading(false);
       })

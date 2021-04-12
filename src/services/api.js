@@ -10,7 +10,6 @@ api.interceptors.request.use((config) => {
     if (token) {
       config.headers.authorization = token;
     }
-    console.log(token);
     return config;
   } catch (err) {
     console.log('err', err);

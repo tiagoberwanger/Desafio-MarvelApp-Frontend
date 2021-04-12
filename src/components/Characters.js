@@ -13,8 +13,6 @@ function Characters () {
     api
       .get('/characters')
       .then((response) => {
-        console.log(response);
-        console.log(response.data);
         setCharacters(response.data);
         setLoading(false);
       })

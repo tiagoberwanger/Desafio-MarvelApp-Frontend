@@ -13,12 +13,10 @@ function DetailedChar() {
     api
       .get(`/characters/${id}`)
       .then((response) => {
-        console.log(response.data);
         setCharacter(response.data);
         setLoading(false);
       })
       .catch((err) =>{
-        console.log(localStorage.getItem('token'))
         console.log(err.message);
       })
   }, [id])

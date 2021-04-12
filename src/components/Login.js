@@ -26,7 +26,6 @@ function Login () {
       api
         .post('/login', bodyObj)
         .then((response) => {
-          console.log(response.data);
           localStorage.setItem('token', JSON.stringify(response.data.token))
           localStorage.setItem('user', JSON.stringify({email}))
           history.push('/home');
@@ -34,7 +33,6 @@ function Login () {
         .catch((err) =>{
           if (err && err.response.status === 400) {
             setError('Usuário não cadastrado!')
-            console.log('Usuário não cadastrado!')
           }
         })
     } catch (err) {
