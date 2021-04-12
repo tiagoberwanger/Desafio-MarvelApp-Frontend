@@ -32,6 +32,9 @@ $ cd Desafio-Stone-Frontend/
 ### Instale as dependências
 $ npm install
 
+### Crie um arquivo .env e insira o seguinte conteúdo:
+REACT_APP_BASE_URL=http://localhost:3001
+
 ### Execute a aplicação 
 $ npm start
 
