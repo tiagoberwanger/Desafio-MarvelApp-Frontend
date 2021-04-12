@@ -34,8 +34,7 @@ function Register () {
   }
 
   return (
-    <div className="container mt-5 p-5 text-center">
-      <h1>Marvel App</h1>
+    <div className="container mt-5 p-3 text-center">
       <Form className="mt-5">
         <Form.Group className='col-lg-offset-12'>
           <Form.Label htmlFor="username-input">Nome</Form.Label>
