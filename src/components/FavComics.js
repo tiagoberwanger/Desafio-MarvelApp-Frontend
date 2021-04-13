@@ -5,7 +5,7 @@ import { Card, Button, CardColumns } from 'react-bootstrap';
 function FavComics() {
   const history = useHistory();
   const [loading, setLoading] = useState(true);
-  const [comics, setComics] = useState(true);
+  const [comics, setComics] = useState({});
 
   useEffect(() => {
     setLoading(true);
@@ -16,10 +16,10 @@ function FavComics() {
   return (
     loading ? <p>Loading...</p> : (
     <div className='container'>
-      <Link to='home'>
+      <Link to='/home'>
         <h5>Voltar</h5>
       </Link>
-      <h1 className='text-center text-black font-weight-bold'>Favorite Comics</h1>
+      <h1 className='text-center text-black font-weight-bold'>Comics Favoritos</h1>
       <div className="text-center">
       <div className="column">
       <CardColumns>

@@ -23,6 +23,7 @@ function Home () {
   return (
     <div className="container">
       <div className='text-center p-5'>
+      <h1 className='text-center text-black font-weight-bold mb-5'>Homepage</h1>
         <ButtonGroup size="lg" vertical>
           <Button className="mb-5" variant='secondary' onClick={() => handleProfile()}>Perfil</Button>
           <Button className="mb-3" variant='dark' onClick={() => handleComics()}>Comics</Button>

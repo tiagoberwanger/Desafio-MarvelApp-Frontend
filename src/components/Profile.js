@@ -24,7 +24,7 @@ function Profile () {
 
   return (
     <div  className="container">
-      <Link to='home'>
+      <Link to='/home'>
         <h5>Voltar</h5>
       </Link>
       <div className="text-center">

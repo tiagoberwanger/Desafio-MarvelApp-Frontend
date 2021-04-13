@@ -55,7 +55,7 @@ function Characters () {
           <InputGroup.Append>
             <Button
               onClick={(e) => handleSearch(e)}
-              variant="outline-secondary"
+              variant="light"
             >
               Procurar
             </Button>

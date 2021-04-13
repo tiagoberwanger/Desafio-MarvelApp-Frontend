@@ -17,10 +17,10 @@ function Routes() {
       <Switch>
         <Route path="/login" component={ Login } />
         <Route path="/register" component={ Register } />
+        <Route path="/home" component={ Home } />
         <Route path="/profile/fav-comics" component={ FavComics } />
         <Route path="/profile/fav-characters" component={ FavCharacters } />
         <Route path="/profile" component={ Profile } />
-        <Route path="/home" component={ Home } />
         <Route path="/comics/:id" component={ DetailedCom } />
         <Route path="/comics" component={ Comics } />
         <Route path="/characters/:id" component={ DetailedChar } />
