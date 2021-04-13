@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory} from 'react-router-dom';
 import { Card, Button, CardColumns } from 'react-bootstrap';
+import Loading from '../design/Loading'
 
 function FavComics() {
   const history = useHistory();
@@ -14,7 +15,7 @@ function FavComics() {
   }, [])
 
   return (
-    loading ? <p>Loading...</p> : (
+    loading ? <Loading /> : (
     <div className='container'>
       <Link to='/home'>
         <h5>Voltar</h5>

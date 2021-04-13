@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Card, ListGroup, ListGroupItem, Button } from 'react-bootstrap';
+import Loading from '../design/Loading'
 import api from '../services/api';
 import { faHeart as whiteHeartButton } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as blackHeartButton } from "@fortawesome/free-solid-svg-icons";
@@ -45,7 +46,7 @@ function DetailedChar() {
   }
 
   return (
-    loading ? <p>Loading...</p> : (
+    loading ? <Loading /> : (
     <div className="container min-vh-100">
       <Link to='/characters'>
         <h5>Voltar</h5>

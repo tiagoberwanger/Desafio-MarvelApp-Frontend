@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Card, Button, CardColumns, InputGroup, FormControl } from 'react-bootstrap';
+import Loading from '../design/Loading'
 import api from '../services/api';
 
 function Characters () {
@@ -41,7 +42,7 @@ function Characters () {
   }
 
   return (
-    loading ? <p>Loading...</p> : (
+    loading ? <Loading /> : (
       <div className="container min-vh-100">
       <Link to='/home'>
         <h5>Voltar</h5>
