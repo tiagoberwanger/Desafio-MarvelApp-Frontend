@@ -3,6 +3,7 @@ import { Link, useHistory } from 'react-router-dom'
 import { Button, ButtonGroup } from 'react-bootstrap'
 import { faStar as blackStarButton } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Back from '../design/Back'
 
 function Profile () {
   const history = useHistory();
@@ -24,9 +25,7 @@ function Profile () {
 
   return (
     <div  className="container">
-      <Link to='/home'>
-        <h5>Voltar</h5>
-      </Link>
+      <Back path='home' />
       <div className="text-center">
         <div>
           <h1 className="mb-5">Perfil</h1>

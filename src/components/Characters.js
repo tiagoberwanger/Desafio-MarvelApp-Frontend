@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { Card, Button, CardColumns, InputGroup, FormControl } from 'react-bootstrap';
 import Loading from '../design/Loading'
+import Back from '../design/Back'
 import api from '../services/api';
 
 function Characters () {
@@ -44,9 +45,7 @@ function Characters () {
   return (
     loading ? <Loading /> : (
       <div className="container min-vh-100">
-      <Link to='/home'>
-        <h5>Voltar</h5>
-      </Link>
+        <Back path='home' />
         <h1 className='text-center text-black font-weight-bold'>Characters</h1>
         <InputGroup className="mb-3">
           <FormControl

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Card, ListGroup, ListGroupItem, Button } from 'react-bootstrap';
 import Loading from '../design/Loading'
+import Back from '../design/Back'
 import api from '../services/api';
 import { faHeart as whiteHeartButton } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as blackHeartButton } from "@fortawesome/free-solid-svg-icons";
@@ -48,9 +49,7 @@ function DetailedCom() {
   return (
     loading ? <Loading /> : (
     <div className="container min-vh-100">
-      <Link to='/comics'>
-        <h5>Voltar</h5>
-      </Link>
+      <Back path='comics' />
       <div className="column m-5">
         {comic.map((detail, index) => {
         return (
@@ -59,6 +58,7 @@ function DetailedCom() {
             <Card.Body key={`${index}-card-body`}>
               <Card.Title key={`${index}-card-title`}>{detail.title}</Card.Title>
               <Button
+              variant='warning'
               onClick={() => handleFavorite()}
               >
                 <FontAwesomeIcon icon={favIcon} />

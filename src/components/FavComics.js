@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useHistory} from 'react-router-dom';
+import { useHistory} from 'react-router-dom';
 import { Card, Button, CardColumns } from 'react-bootstrap';
 import Loading from '../design/Loading'
+import Back from '../design/Back'
 
 function FavComics() {
   const history = useHistory();
@@ -17,9 +18,7 @@ function FavComics() {
   return (
     loading ? <Loading /> : (
     <div className='container'>
-      <Link to='/home'>
-        <h5>Voltar</h5>
-      </Link>
+      <Back path='profile' />
       <h1 className='text-center text-black font-weight-bold'>Comics Favoritos</h1>
       <div className="text-center">
       <div className="column">
