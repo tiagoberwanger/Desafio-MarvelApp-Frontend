@@ -8,6 +8,8 @@ import Comics from './components/Comics';
 import Characters from './components/Characters';
 import DetailedCom from './components/DetailedCom';
 import DetailedChar from './components/DetailedChar';
+import FavComics from './components/FavComics';
+import FavCharacters from './components/FavCharacters';
 
 function Routes() {
   return (
@@ -15,6 +17,8 @@ function Routes() {
       <Switch>
         <Route path="/login" component={ Login } />
         <Route path="/register" component={ Register } />
+        <Route path="/profile/fav-comics" component={ FavComics } />
+        <Route path="/profile/fav-characters" component={ FavCharacters } />
         <Route path="/profile" component={ Profile } />
         <Route path="/home" component={ Home } />
         <Route path="/comics/:id" component={ DetailedCom } />
