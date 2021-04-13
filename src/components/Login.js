@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Form, Button, ButtonGroup, Image } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
 import api from '../services/api';
+const favComics = [];
+const favCharacters = [];
 
 function Login () {
   const history = useHistory();
@@ -27,6 +29,8 @@ function Login () {
         .then((response) => {
           localStorage.setItem('token', JSON.stringify(response.data.token))
           localStorage.setItem('user', JSON.stringify({email}))
+          localStorage.setItem('favComics', JSON.stringify(favComics))
+          localStorage.setItem('favCharacters', JSON.stringify(favCharacters))
           history.push('/home');
         })
         .catch((err) =>{

@@ -2,11 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 import api from '../services/api';
+import { faHeart as whiteHeartButton } from "@fortawesome/free-regular-svg-icons";
+import { faHeart as blackHeartButton } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function DetailedCom() {
   const { id } = useParams(); 
   const [loading, setLoading] = useState(true);
-  const [comic, setComic] = useState(true);
+  const [comic, setComic] = useState('');
+  const [favIcon, setFavicon] = useState(whiteHeartButton)
+  const [comicId, setComicId] = useState()
 
   useEffect(() => {
     setLoading(true);
@@ -14,12 +19,26 @@ function DetailedCom() {
       .get(`/comics/${id}`)
       .then((response) => {
         setComic(response.data)
+        setComicId(response.data[0].id)
         setLoading(false);
       })
       .catch((err) =>{
         console.log(err.message);
       })
   }, [id])
+
+  const handleFavorite = () => {
+    let favComics = JSON.parse(localStorage.getItem('favComics'))
+    if (favIcon === whiteHeartButton) {
+      setFavicon(blackHeartButton)
+      favComics.push(comicId)
+      localStorage.setItem('favComics', JSON.stringify(favComics))
+    } else {
+      setFavicon(whiteHeartButton)
+      favComics = favComics.filter((comic) => comic !== comicId)
+      localStorage.setItem('favComics', JSON.stringify(favComics))
+    }
+  }
 
   return (
     loading ? <p>Loading...</p> : (
@@ -34,6 +53,11 @@ function DetailedCom() {
             <Card.Img key={`${index}-card-thumb`} variant="top" src={detail.thumbnail.path+'.'+detail.thumbnail.extension} />
             <Card.Body key={`${index}-card-body`}>
               <Card.Title key={`${index}-card-title`}>{detail.title}</Card.Title>
+              <button
+              onClick={() => handleFavorite()}
+              >
+                <FontAwesomeIcon icon={favIcon} />
+              </button>
               <Card.Text key={`${index}-card-text`}>
                 {detail.description ? detail.description : 'Sem descrição!'}
               </Card.Text>

@@ -6,7 +6,7 @@ import api from '../services/api';
 function DetailedChar() {
   const { id } = useParams(); 
   const [loading, setLoading] = useState(true);
-  const [character, setCharacter] = useState(true);
+  const [character, setCharacter] = useState('');
 
   useEffect(() => {
     setLoading(true);
