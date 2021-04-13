@@ -35,12 +35,14 @@ function DetailedCom() {
             <Card.Body key={`${index}-card-body`}>
               <Card.Title key={`${index}-card-title`}>{detail.title}</Card.Title>
               <Card.Text key={`${index}-card-text`}>
-                {detail.description ? detail.description : 'No description!'}
+                {detail.description ? detail.description : 'Sem descrição!'}
               </Card.Text>
             </Card.Body>
             <ListGroup key={`${index}-card-list`} className="list-group-flush">
-              <h5>Stories:</h5>
-              {comic[0].stories.items.map((item, i) => {
+              <h5>Characters:</h5>
+              {comic[0].characters.items.length === 0
+              ? 'Sem personagens'
+              : comic[0].characters.items.map((item, i) => {
                 return (
                   <ListGroupItem key={`${i}-card-item`}>{item.name}</ListGroupItem>
                 )
