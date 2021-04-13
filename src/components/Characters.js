@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { Card, Button, CardColumns } from 'react-bootstrap';
+import { Card, Button, CardColumns, InputGroup, FormControl } from 'react-bootstrap';
 import api from '../services/api';
 
 function Characters () {
   const history = useHistory();
   const [loading, setLoading] = useState(true);
   const [characters, setCharacters] = useState(true);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     setLoading(true);
@@ -21,6 +22,24 @@ function Characters () {
       })
   }, [])
 
+  const handleSearch = (e) => {
+    e.preventDefault();
+    console.log(searchTerm)
+    try {
+      api
+        .get(`/characters/search?q=${searchTerm}`)
+        .then((response) => {
+          console.log(response.data.data.results)
+          setCharacters(response.data.data.results);
+        })
+        .catch((err) =>{
+          console.log(err.message);
+        })
+    } catch (err) {
+        console.log(err.message)
+    }
+  }
+
   return (
     loading ? <p>Loading...</p> : (
       <div className="container min-vh-100">
@@ -28,7 +47,21 @@ function Characters () {
         <h5>Voltar</h5>
       </Link>
         <h1 className='text-center text-black font-weight-bold'>Characters</h1>
-        <div className="column ml-3">
+        <InputGroup className="mb-3">
+          <FormControl
+            onChange={(e) => setSearchTerm(e.target.value)}
+            placeholder="procurar por nome"
+          />
+          <InputGroup.Append>
+            <Button
+              onClick={(e) => handleSearch(e)}
+              variant="outline-secondary"
+            >
+              Procurar
+            </Button>
+          </InputGroup.Append>
+        </InputGroup>
+        <div className="column">
          <CardColumns>
           {characters.map((character, index) => {
               return (
