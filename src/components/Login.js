@@ -14,6 +14,8 @@ function Login () {
   useEffect(() => {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
+    localStorage.removeItem('favComics');
+    localStorage.removeItem('favCharacters');
   })
 
   const handleClick = (e) => {

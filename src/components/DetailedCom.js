@@ -11,7 +11,7 @@ function DetailedCom() {
   const [loading, setLoading] = useState(true);
   const [comic, setComic] = useState('');
   const [favIcon, setFavicon] = useState(whiteHeartButton)
-  const [comicId, setComicId] = useState()
+  const [comicObj, setComicObj] = useState()
 
   useEffect(() => {
     setLoading(true);
@@ -19,7 +19,11 @@ function DetailedCom() {
       .get(`/comics/${id}`)
       .then((response) => {
         setComic(response.data)
-        setComicId(response.data[0].id)
+        setComicObj({
+          id: response.data[0].id,
+          name: response.data[0].title,
+          thumbnail: response.data[0].thumbnail,
+        })
         setLoading(false);
       })
       .catch((err) =>{
@@ -31,11 +35,11 @@ function DetailedCom() {
     let favComics = JSON.parse(localStorage.getItem('favComics'))
     if (favIcon === whiteHeartButton) {
       setFavicon(blackHeartButton)
-      favComics.push(comicId)
+      favComics.push(comicObj)
       localStorage.setItem('favComics', JSON.stringify(favComics))
     } else {
       setFavicon(whiteHeartButton)
-      favComics = favComics.filter((comic) => comic !== comicId)
+      favComics = favComics.filter((comic) => comic.id !== comicObj.id)
       localStorage.setItem('favComics', JSON.stringify(favComics))
     }
   }
