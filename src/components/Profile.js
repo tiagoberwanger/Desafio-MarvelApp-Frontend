@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom'
-import { Button, ButtonGroup } from 'react-bootstrap' 
+import { Button, ButtonGroup } from 'react-bootstrap'
+import { faStar as blackStarButton } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Profile () {
   const history = useHistory();
@@ -31,8 +33,15 @@ function Profile () {
           <h5>Nome: {profileName ? profileName : 'Nome não cadastrado'}</h5>
           <h5>Email: {profileEmail}</h5>
           <ButtonGroup size="lg">
-            <Button className="m-4" variant='warning' onClick={() => handlefavComics()}>Favorite Comics</Button>
-            <Button className="m-4" variant='warning' onClick={() => handlefavCharacters()}>Favorite Characters</Button>
+            <Button className="m-4 rounded" variant='warning' onClick={() => handlefavComics()}
+            >
+              <FontAwesomeIcon icon={blackStarButton} />{' '}Comics
+            </Button>
+            
+            <Button className="m-4 rounded" variant='warning' onClick={() => handlefavCharacters()}
+            >
+              <FontAwesomeIcon icon={blackStarButton} />{' '}Characters
+            </Button>
           </ButtonGroup>
         </div>
       </div>
