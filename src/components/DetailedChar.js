@@ -26,6 +26,10 @@ function DetailedChar() {
           name: response.data[0].name,
           thumbnail: response.data[0].thumbnail,
         })
+        const isFavorite = JSON.parse(localStorage.getItem('favCharacters'))
+        if (isFavorite.length > 0 && isFavorite[0].id === response.data[0].id) {
+          setFavicon(blackHeartButton)
+        }
         setLoading(false);
       })
       .catch((err) =>{
