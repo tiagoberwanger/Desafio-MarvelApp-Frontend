@@ -12,6 +12,9 @@
 - [x] Página de perfil do usuário
 - [x] Página de visualização de todos os comics
 - [x] Página de visualização de todos os characteres
+- [x] Pesquisa de comics por nome
+- [x] Pesquisa de characteres por nome
+- [x] Página de visualização de todos os comics
 - [x] Página de detalhes de um comic específico
 - [x] Página de detalhes de um character específico
 - [x] Opção de favoritar comic
