@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
-import { Card, Button, CardColumns, InputGroup, FormControl } from 'react-bootstrap';
+import { Button, CardColumns, InputGroup, FormControl } from 'react-bootstrap';
 import Loading from '../components/Loading'
 import Back from '../components/Back'
 import Cards from '../components/Card'
 import api from '../services/api';
 
 function Comics () {
-  const history = useHistory();
   const [loading, setLoading] = useState(true);
   const [cards, setCards] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');

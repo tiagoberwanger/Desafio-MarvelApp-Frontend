@@ -1,26 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Card, ListGroup, ListGroupItem, Button } from 'react-bootstrap';
 import Loading from '../components/Loading'
 import Back from '../components/Back'
 import api from '../services/api';
+import CardDetailed from '../components/CardDetailed'
 import { faHeart as whiteHeartButton } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as blackHeartButton } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function DetailedCom() {
   const { id } = useParams(); 
   const [loading, setLoading] = useState(true);
-  const [comic, setComic] = useState('');
-  const [favIcon, setFavicon] = useState(whiteHeartButton);
+  const [cards, setCards] = useState('');
   const [comicObj, setComicObj] = useState({});
+  const [favIcon, setFavicon] = useState(whiteHeartButton);
 
   useEffect(() => {
     setLoading(true);
     api
       .get(`/comics/${id}`)
       .then((response) => {
-        setComic(response.data)
+        setCards(response.data)
         setComicObj({
           id: response.data[0].id,
           name: response.data[0].title,
@@ -55,37 +54,14 @@ function DetailedCom() {
     <div className="container min-vh-100">
       <Back path='comics' />
       <div className="column m-5">
-        {comic.map((detail, index) => {
-        return (
-          <Card className="card w-100 p-2 border border-dark rounded">
-            <Card.Img key={`${index}-card-thumb`} variant="top" src={detail.thumbnail.path+'.'+detail.thumbnail.extension} />
-            <Card.Body key={`${index}-card-body`}>
-              <Card.Title key={`${index}-card-title`}>{detail.title}</Card.Title>
-              <Button
-              variant='warning'
-              onClick={() => handleFavorite()}
-              >
-                <FontAwesomeIcon icon={favIcon} />
-              </Button>
-              <Card.Text key={`${index}-card-text`}>
-                {detail.description ? detail.description : 'Sem descrição!'}
-              </Card.Text>
-            </Card.Body>
-            <ListGroup key={`${index}-card-list`} className="list-group-flush">
-              <h5>Characters:</h5>
-              {comic[0].characters.items.length === 0
-              ? 'Sem personagens'
-              : comic[0].characters.items.map((item, i) => {
-                return (
-                  <ListGroupItem key={`${i}-card-item`}>{item.name}</ListGroupItem>
-                )
-              })}
-            </ListGroup>
-            <Card.Body key={`${index}-card-body-2`}>
-              <Card.Link key={`${index}-card-link1`} href={detail.urls[0].url} target="_blank">Mais detalhes</Card.Link>
-            </Card.Body>
-          </Card>
-        )})}
+        {cards.map((card, index) => 
+          <CardDetailed 
+            card={card} 
+            index={index} 
+            handleFavorite={handleFavorite}
+            favIcon={favIcon}
+          /> 
+        )}
       </div>
     </div>
   ));
