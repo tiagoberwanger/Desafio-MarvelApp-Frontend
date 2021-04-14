@@ -26,6 +26,7 @@ function Comics () {
   }, [])
 
   const handleSearch = (e) => {
+    setLoading(true);
     e.preventDefault();
     console.log(searchTerm)
     try {
@@ -34,6 +35,7 @@ function Comics () {
         .then((response) => {
           console.log(response.data.data.results)
           setComics(response.data.data.results);
+          setLoading(false);
         })
         .catch((err) =>{
           console.log(err.message);

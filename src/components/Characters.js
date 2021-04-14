@@ -25,6 +25,7 @@ function Characters () {
   }, [])
 
   const handleSearch = (e) => {
+    setLoading(true);
     e.preventDefault();
     console.log(searchTerm)
     try {
@@ -33,6 +34,7 @@ function Characters () {
         .then((response) => {
           console.log(response.data.data.results)
           setCharacters(response.data.data.results);
+          setLoading(false);
         })
         .catch((err) =>{
           console.log(err.message);
