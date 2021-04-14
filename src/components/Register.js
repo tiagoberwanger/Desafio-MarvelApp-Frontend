@@ -57,9 +57,9 @@ function Register () {
           {/* <Form.Label htmlFor="password-input">Senha</Form.Label> */}
           <Form.Control size="lg" type="password" placeholder="Digite sua senha" className="bg-light" onChange={(e) => setPassword(e.target.value)} />
           <Form.Text id="password-help" className="font-weight-bold text-dark">Deve ter no mínimo 6 caracteres</Form.Text>
+          <Form.Text id="error-400" className="font-weight-bold text-danger">{error400}</Form.Text>
+          <Form.Text id="error-409" className="font-weight-bold text-danger">{error409}</Form.Text>
         </Form.Group>
-        <span className='text-danger'>{error400}</span>
-        <span className='text-danger'>{error409}</span>
         <ButtonGroup size="lg" vertical>
           <Button variant='info' onClick={(e) => handleClick(e)} >Registrar</Button>
         </ButtonGroup>
