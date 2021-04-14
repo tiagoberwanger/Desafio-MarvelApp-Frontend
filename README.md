@@ -8,17 +8,18 @@
 
 - [x] Página de login com autenticação.
 - [x] Página de registro de novo usuário.
-- [x] Homepage com rotas para perfil, comics, characters e logout.
+- [x] Homepage com rotas para perfil comics, characters e logout.
 - [x] Página de perfil do usuário
+- [x] Página de comics favoritados
+- [x] Página de characters favoritados
 - [x] Página de visualização de todos os comics
 - [x] Página de visualização de todos os characteres
 - [x] Pesquisa de comics por nome
 - [x] Pesquisa de characteres por nome
-- [x] Página de visualização de todos os comics
 - [x] Página de detalhes de um comic específico
 - [x] Página de detalhes de um character específico
-- [x] Opção de favoritar comic
-- [x] Opção de favoritar character
+- [x] Opção de favoritar um comic na tela de detalhes
+- [x] Opção de favoritar um character na tela de detalhes
 
 # Demonstração da Aplicação
 
