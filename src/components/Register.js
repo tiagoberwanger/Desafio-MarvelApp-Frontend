@@ -10,7 +10,7 @@ function Register () {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  // const [error, setError] = useState('');
+  const [error, setError] = useState('');
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -30,10 +30,9 @@ function Register () {
       })
       .catch((err) =>{
         console.log(err.message);
-        // if (err.response.status === // statuscode) {
-        //   setError(//error)
-        //   console.log(//error)
-        // }
+        if (err && err.response.status === 409) {
+          setError('Esse email já foi cadastrado!')
+        }
       })
   }
 
@@ -48,6 +47,7 @@ function Register () {
         <Form.Group className='col-lg-offset-12'>
           {/* <Form.Label htmlFor="email-input">Email</Form.Label> */}
           <Form.Control size="lg" type="email" placeholder="Digite seu email" className="bg-light" onChange={(e) => setEmail(e.target.value)} />
+          <span>{error}</span>
           <Form.Text id="email-help" className="font-weight-bold text-dark">Deve ser um email válido</Form.Text>
         </Form.Group>
         <Form.Group className='col-lg-offset-12'>
