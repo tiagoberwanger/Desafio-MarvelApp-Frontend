@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 import { Button, ButtonGroup } from 'react-bootstrap'
 import { faStar as blackStarButton } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Back from '../design/Back'
+import Back from '../components/Back'
 
 function Profile () {
   const history = useHistory();

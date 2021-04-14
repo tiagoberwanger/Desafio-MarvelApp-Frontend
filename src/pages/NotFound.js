@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image } from 'react-bootstrap';
-import Back from '../design/Back';
+import Back from '../components/Back';
 
 function Notfound() {
   return (

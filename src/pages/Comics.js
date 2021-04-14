@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Card, Button, CardColumns, InputGroup, FormControl } from 'react-bootstrap';
-import Loading from '../design/Loading'
-import Back from '../design/Back'
+import Loading from '../components/Loading'
+import Back from '../components/Back'
+import Cards from '../components/Card'
 import api from '../services/api';
 
 function Comics () {
   const history = useHistory();
   const [loading, setLoading] = useState(true);
-  const [comics, setComics] = useState(true);
+  const [cards, setCards] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
@@ -16,7 +17,7 @@ function Comics () {
     api
       .get('/comics')
       .then((response) => {
-        setComics(response.data)
+        setCards(response.data)
         setLoading(false);
       })
       .catch((err) =>{
@@ -34,7 +35,7 @@ function Comics () {
         .get(`/comics/search?q=${searchTerm}`)
         .then((response) => {
           console.log(response.data.data.results)
-          setComics(response.data.data.results);
+          setCards(response.data.data.results);
           setLoading(false);
         })
         .catch((err) =>{
@@ -66,17 +67,7 @@ function Comics () {
         </InputGroup>
       <div className="column">
       <CardColumns>
-        {comics.map((comic, index) => {
-          return (
-            <Card key={`${index}-card-main-div`} style={{ width: '18rem' }} className='card w-100 border border-dark rounded'>
-              <Card.Img key={`${index}-card-thumb`} variant="top" src={comic.thumbnail.path+'.'+comic.thumbnail.extension} />
-              <Card.Body key={`${index}-card-div`}>
-                <Card.Title key={`${index}-card-title`}>{comic.title}</Card.Title>
-                  <Button onClick={() => history.push(`/comics/${comic.id}`)} className="btn btn-dark" variant="primary">Detalhes</Button>
-              </Card.Body>
-            </Card>
-          )
-          })}
+        {cards.map((card, index) => <Cards card={card} index={index} /> )}
       </CardColumns>
       </div>
     </div>

@@ -1,32 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Card, ListGroup, ListGroupItem, Button } from 'react-bootstrap';
-import Loading from '../design/Loading'
-import Back from '../design/Back'
+import Loading from '../components/Loading'
+import Back from '../components/Back'
 import api from '../services/api';
 import { faHeart as whiteHeartButton } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as blackHeartButton } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-function DetailedCom() {
+function DetailedChar() {
   const { id } = useParams(); 
   const [loading, setLoading] = useState(true);
-  const [comic, setComic] = useState('');
+  const [character, setCharacter] = useState('');
   const [favIcon, setFavicon] = useState(whiteHeartButton);
-  const [comicObj, setComicObj] = useState({});
+  const [CharacterObj, setCharacterObj] = useState({});
 
   useEffect(() => {
     setLoading(true);
     api
-      .get(`/comics/${id}`)
+      .get(`/characters/${id}`)
       .then((response) => {
-        setComic(response.data)
-        setComicObj({
+        setCharacter(response.data);
+        setCharacterObj({
           id: response.data[0].id,
-          name: response.data[0].title,
+          name: response.data[0].name,
           thumbnail: response.data[0].thumbnail,
         })
-        const isFavorite = JSON.parse(localStorage.getItem('favComics'))
+        const isFavorite = JSON.parse(localStorage.getItem('favCharacters'))
         if (isFavorite.length > 0 && isFavorite[0].id === response.data[0].id) {
           setFavicon(blackHeartButton)
         }
@@ -38,29 +38,29 @@ function DetailedCom() {
   }, [id])
 
   const handleFavorite = () => {
-    let favComics = JSON.parse(localStorage.getItem('favComics'))
+    let favCharacters = JSON.parse(localStorage.getItem('favCharacters'))
     if (favIcon === whiteHeartButton) {
       setFavicon(blackHeartButton)
-      favComics.push(comicObj)
-      localStorage.setItem('favComics', JSON.stringify(favComics))
+      favCharacters.push(CharacterObj)
+      localStorage.setItem('favCharacters', JSON.stringify(favCharacters))
     } else {
       setFavicon(whiteHeartButton)
-      favComics = favComics.filter((comic) => comic.id !== comicObj.id)
-      localStorage.setItem('favComics', JSON.stringify(favComics))
+      favCharacters = favCharacters.filter((char) => char.id !== CharacterObj.id)
+      localStorage.setItem('favCharacters', JSON.stringify(favCharacters))
     }
   }
 
   return (
     loading ? <Loading /> : (
     <div className="container min-vh-100">
-      <Back path='comics' />
+      <Back path='characters' />
       <div className="column m-5">
-        {comic.map((detail, index) => {
+        {character.map((detail, index) => {
         return (
           <Card className="card w-100 p-2 border border-dark rounded">
             <Card.Img key={`${index}-card-thumb`} variant="top" src={detail.thumbnail.path+'.'+detail.thumbnail.extension} />
             <Card.Body key={`${index}-card-body`}>
-              <Card.Title key={`${index}-card-title`}>{detail.title}</Card.Title>
+              <Card.Title key={`${index}-card-title`}>{detail.name}</Card.Title>
               <Button
               variant='warning'
               onClick={() => handleFavorite()}
@@ -72,10 +72,10 @@ function DetailedCom() {
               </Card.Text>
             </Card.Body>
             <ListGroup key={`${index}-card-list`} className="list-group-flush">
-              <h5>Characters:</h5>
-              {comic[0].characters.items.length === 0
-              ? 'Sem personagens'
-              : comic[0].characters.items.map((item, i) => {
+              <h5>Comics:</h5>
+              {character[0].comics.items.length === 0
+              ? 'Sem comics'
+              : character[0].comics.items.map((item, i) => {
                 return (
                   <ListGroupItem key={`${i}-card-item`}>{item.name}</ListGroupItem>
                 )
@@ -91,4 +91,4 @@ function DetailedCom() {
   ));
 }
 
-export default DetailedCom;
+export default DetailedChar;

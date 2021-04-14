@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory} from 'react-router-dom';
 import { Card, Button, CardColumns } from 'react-bootstrap';
-import Loading from '../design/Loading'
-import Back from '../design/Back'
+import Loading from '../components/Loading'
+import Back from '../components/Back'
 
 function FavCharacters() {
   const history = useHistory();

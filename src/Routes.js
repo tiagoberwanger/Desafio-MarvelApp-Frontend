@@ -1,16 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-import Login from './components/Login';
-import Register from './components/Register';
-import Profile from './components/Profile';
-import Home from './components/Home';
-import Comics from './components/Comics';
-import Characters from './components/Characters';
-import DetailedCom from './components/DetailedCom';
-import DetailedChar from './components/DetailedChar';
-import FavComics from './components/FavComics';
-import FavCharacters from './components/FavCharacters';
-import NotFound from './components/NotFound';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Profile from './pages/Profile';
+import Home from './pages/Home';
+import Comics from './pages/Comics';
+import Characters from './pages/Characters';
+import DetailedCom from './pages/DetailedCom';
+import DetailedChar from './pages/DetailedChar';
+import FavComics from './pages/FavComics';
+import FavCharacters from './pages/FavCharacters';
+import NotFound from './pages/NotFound';
 
 function Routes() {
   return (

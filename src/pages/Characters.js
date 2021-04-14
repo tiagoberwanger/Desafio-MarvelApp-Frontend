@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
-import { Card, Button, CardColumns, InputGroup, FormControl } from 'react-bootstrap';
-import Loading from '../design/Loading'
-import Back from '../design/Back'
+import { Button, CardColumns, InputGroup, FormControl } from 'react-bootstrap';
+import Loading from '../components/Loading'
+import Back from '../components/Back'
+import Cards from '../components/Card'
 import api from '../services/api';
 
 function Characters () {
-  const history = useHistory();
   const [loading, setLoading] = useState(true);
-  const [characters, setCharacters] = useState(true);
+  const [cards, setCards] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
@@ -16,7 +15,7 @@ function Characters () {
     api
       .get('/characters')
       .then((response) => {
-        setCharacters(response.data);
+        setCards(response.data);
         setLoading(false);
       })
       .catch((err) =>{
@@ -33,7 +32,7 @@ function Characters () {
         .get(`/characters/search?q=${searchTerm}`)
         .then((response) => {
           console.log(response.data.data.results)
-          setCharacters(response.data.data.results);
+          setCards(response.data.data.results);
           setLoading(false);
         })
         .catch((err) =>{
@@ -65,17 +64,7 @@ function Characters () {
         </InputGroup>
         <div className="column">
          <CardColumns>
-          {characters.map((character, index) => {
-              return (
-                <Card key={`${index}-card-main-div`} style={{ width: '18rem' }} className='card w-100 border border-dark rounded'>
-                  <Card.Img key={`${index}-card-thumb`} variant="top" src={character.thumbnail.path+'.'+character.thumbnail.extension} />
-                  <Card.Body key={`${index}-card-div`}>
-                    <Card.Title key={`${index}-card-title`}>{character.name}</Card.Title>
-                      <Button onClick={() => history.push(`/characters/${character.id}`)} className="btn btn-dark" variant="primary">Detalhes</Button>
-                  </Card.Body>
-                </Card>
-              )
-              })}
+          {cards.map((card, index) => <Cards card={card} index={index} /> )}
          </CardColumns>
         </div>
       </div>
