@@ -49,6 +49,10 @@ $ npm start
 
 ### O servidor inciará na porta:3000 - acesse <http://localhost:3000>
 
+Caso não queira registrar um novo usuário, pode usar o usuário teste gerado no backend:  
+  email: "teste@email.com",  
+  password: 123456  
+
 # 🛠 Tecnologias
 
 As seguintes ferramentas foram usadas na construção do projeto:
