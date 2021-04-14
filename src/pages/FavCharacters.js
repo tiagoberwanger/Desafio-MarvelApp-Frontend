@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory} from 'react-router-dom';
-import { Card, Button, CardColumns } from 'react-bootstrap';
-import Loading from '../components/Loading'
-import Back from '../components/Back'
+import { CardColumns } from 'react-bootstrap';
+import Loading from '../components/Loading';
+import Back from '../components/Back';
+import Cards from '../components/Card';
 
 function FavCharacters() {
-  const history = useHistory();
   const [loading, setLoading] = useState(true);
-  const [characters, setCharacters] = useState({});
+  const [cards, setCards] = useState({});
 
   useEffect(() => {
     setLoading(true);
-    setCharacters(JSON.parse(localStorage.getItem('favCharacters')))
+    setCards(JSON.parse(localStorage.getItem('favCharacters')))
     setLoading(false);
   }, [])
 
@@ -23,17 +22,7 @@ function FavCharacters() {
       <div className="text-center">
       <div className="column">
       <CardColumns>
-        {characters && characters.map((character, index) => {
-          return (
-            <Card key={`${index}-card-main-div`} style={{ width: '18rem' }} className='card w-100 border border-dark rounded'>
-              <Card.Img key={`${index}-card-thumb`} variant="top" src={character.thumbnail.path+'.'+character.thumbnail.extension} />
-              <Card.Body key={`${index}-card-div`}>
-                <Card.Title key={`${index}-card-title`}>{character.name}</Card.Title>
-                  <Button onClick={() => history.push(`/characters/${character.id}`)} className="btn btn-dark" variant="primary">Detalhes</Button>
-              </Card.Body>
-            </Card>
-          )
-          })}
+      {cards && cards.map((card, index) => <Cards card={card} index={index} /> )}
       </CardColumns>
       </div>
       </div>

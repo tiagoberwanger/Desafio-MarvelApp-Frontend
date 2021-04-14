@@ -22,8 +22,9 @@ function DetailedCom() {
         setCards(response.data)
         setComicObj({
           id: response.data[0].id,
-          name: response.data[0].title,
+          name: response.data[0].name,
           thumbnail: response.data[0].thumbnail,
+          type: response.data[0].type
         })
         const isFavorite = JSON.parse(localStorage.getItem('favComics'))
         if (isFavorite.length > 0 && isFavorite[0].id === response.data[0].id) {

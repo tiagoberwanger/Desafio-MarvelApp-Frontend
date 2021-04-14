@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory} from 'react-router-dom';
-import { Card, Button, CardColumns } from 'react-bootstrap';
-import Loading from '../components/Loading'
-import Back from '../components/Back'
+import { CardColumns } from 'react-bootstrap';
+import Loading from '../components/Loading';
+import Back from '../components/Back';
+import Cards from '../components/Card';
 
 function FavComics() {
-  const history = useHistory();
   const [loading, setLoading] = useState(true);
-  const [comics, setComics] = useState({});
+  const [cards, setCards] = useState('');
 
   useEffect(() => {
     setLoading(true);
-    setComics(JSON.parse(localStorage.getItem('favComics')))
+    setCards(JSON.parse(localStorage.getItem('favComics')))
     setLoading(false);
   }, [])
 
@@ -23,17 +22,7 @@ function FavComics() {
       <div className="text-center">
       <div className="column">
       <CardColumns>
-        {comics && comics.map((comic, index) => {
-          return (
-            <Card key={`${index}-card-main-div`} style={{ width: '18rem' }} className='card w-100 border border-dark rounded'>
-              <Card.Img key={`${index}-card-thumb`} variant="top" src={comic.thumbnail.path+'.'+comic.thumbnail.extension} />
-              <Card.Body key={`${index}-card-div`}>
-                <Card.Title key={`${index}-card-title`}>{comic.name}</Card.Title>
-                  <Button onClick={() => history.push(`/comics/${comic.id}`)} className="btn btn-dark" variant="primary">Detalhes</Button>
-              </Card.Body>
-            </Card>
-          )
-          })}
+      {cards && cards.map((card, index) => <Cards card={card} index={index} /> )}
       </CardColumns>
       </div>
       </div>

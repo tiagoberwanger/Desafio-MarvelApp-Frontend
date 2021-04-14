@@ -15,6 +15,7 @@ function Characters () {
     api
       .get('/characters')
       .then((response) => {
+        console.log(response.data)
         setCards(response.data);
         setLoading(false);
       })
@@ -31,8 +32,8 @@ function Characters () {
       api
         .get(`/characters/search?q=${searchTerm}`)
         .then((response) => {
-          console.log(response.data.data.results)
-          setCards(response.data.data.results);
+          console.log(response.data)
+          setCards(response.data);
           setLoading(false);
         })
         .catch((err) =>{

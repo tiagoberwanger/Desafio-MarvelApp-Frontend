@@ -32,8 +32,8 @@ function Comics () {
       api
         .get(`/comics/search?q=${searchTerm}`)
         .then((response) => {
-          console.log(response.data.data.results)
-          setCards(response.data.data.results);
+          console.log(response.data)
+          setCards(response.data);
           setLoading(false);
         })
         .catch((err) =>{
