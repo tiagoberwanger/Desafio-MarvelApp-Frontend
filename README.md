@@ -14,8 +14,8 @@
 - [x] Página de visualização de todos os characteres
 - [x] Página de detalhes de um comic específico
 - [x] Página de detalhes de um character específico
-- [ ] Opção de favoritar comic
-- [ ] Opção de favoritar character
+- [x] Opção de favoritar comic
+- [x] Opção de favoritar character
 
 # Demonstração da Aplicação
 
