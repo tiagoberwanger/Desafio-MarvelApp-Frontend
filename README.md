@@ -23,6 +23,10 @@
 
 # Pré-requisitos e como rodar a aplicação localmente
 
+## Pré-requisitos
+
+Instalar o [NodeJS](https://nodejs.org/pt-br/download/package-manager/) na sua máquina.
+
 ### Clone este repositório
 $ git clone <https://github.com/tiagoberwanger/Desafio-Stone-Frontend.git>
 
@@ -47,6 +51,10 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [React](https://pt-br.reactjs.org/)
 - [React Bootstrap](https://react-bootstrap.github.io/)
 - [Axios](https://github.com/axios/axios)
+
+# Submissão
+
+A submissão desse projeto foi feita no [Heroku](https://heroku.com/), e está pronta pra uso no seguinte [link](https://marvel-app-ft.herokuapp.com/)
 
 # Autor
 
