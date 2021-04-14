@@ -32,10 +32,10 @@ function Register () {
       .catch((err) =>{
         console.log(err.message);
         if (err && err.response.status === 400) {
-          setError400('username, email ou password não seguem as regras!')
+          setError400('Regras inválidas!')
         }
         if (err && err.response.status === 409) {
-          setError409('Esse email já foi cadastrado!')
+          setError409('Email já foi cadastrado!')
         }
       })
   }
