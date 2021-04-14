@@ -34,22 +34,22 @@ function Register () {
   }
 
   return (
-    <div className="container mt-5 p-3 text-center">
+    <div className="container p-3 text-center">
       <Form className="mt-5">
         <Form.Group className='col-lg-offset-12'>
-          <Form.Label htmlFor="username-input">Nome</Form.Label>
-          <Form.Control type="username" placeholder="Digite seu nome" onChange={(e) => setUsername(e.target.value)} />
-          <Form.Text id="username-help" className="text-muted">Deve ter no mínimo 8 caracteres</Form.Text>
+          {/* <Form.Label htmlFor="username-input">Nome</Form.Label> */}
+          <Form.Control size="lg" type="username" className="bg-light" placeholder="Digite seu nome" onChange={(e) => setUsername(e.target.value)} />
+          <Form.Text id="username-help" className="font-weight-bold text-dark">Deve ter no mínimo 8 caracteres</Form.Text>
         </Form.Group>
         <Form.Group className='col-lg-offset-12'>
-          <Form.Label htmlFor="email-input">Email</Form.Label>
-          <Form.Control type="email" placeholder="Digite seu email" onChange={(e) => setEmail(e.target.value)} />
-          <Form.Text id="email-help" className="text-muted">Deve ser um email válido</Form.Text>
+          {/* <Form.Label htmlFor="email-input">Email</Form.Label> */}
+          <Form.Control size="lg" type="email" placeholder="Digite seu email" className="bg-light" onChange={(e) => setEmail(e.target.value)} />
+          <Form.Text id="email-help" className="font-weight-bold text-dark">Deve ser um email válido</Form.Text>
         </Form.Group>
         <Form.Group className='col-lg-offset-12'>
-          <Form.Label htmlFor="password-input">Senha</Form.Label>
-          <Form.Control type="password" placeholder="Digite sua senha" onChange={(e) => setPassword(e.target.value)} />
-          <Form.Text id="password-help" className="form-text text-muted">Deve ter no mínimo 6 caracteres</Form.Text>
+          {/* <Form.Label htmlFor="password-input">Senha</Form.Label> */}
+          <Form.Control size="lg" type="password" placeholder="Digite sua senha" className="bg-light" onChange={(e) => setPassword(e.target.value)} />
+          <Form.Text id="password-help" className="font-weight-bold text-dark">Deve ter no mínimo 6 caracteres</Form.Text>
         </Form.Group>
         <ButtonGroup size="lg" vertical>
           <Button variant='info' onClick={(e) => handleClick(e)} >Registrar</Button>

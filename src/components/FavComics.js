@@ -23,7 +23,7 @@ function FavComics() {
       <div className="text-center">
       <div className="column">
       <CardColumns>
-        {comics.map((comic, index) => {
+        {comics && comics.map((comic, index) => {
           return (
             <Card key={`${index}-card-main-div`} style={{ width: '18rem' }} className='card w-100 border border-dark rounded'>
               <Card.Img key={`${index}-card-thumb`} variant="top" src={comic.thumbnail.path+'.'+comic.thumbnail.extension} />

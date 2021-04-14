@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useHistory} from 'react-router-dom';
+import { useHistory} from 'react-router-dom';
 import { Card, Button, CardColumns } from 'react-bootstrap';
 import Loading from '../design/Loading'
 import Back from '../design/Back'
@@ -23,7 +23,7 @@ function FavCharacters() {
       <div className="text-center">
       <div className="column">
       <CardColumns>
-        {characters.map((character, index) => {
+        {characters && characters.map((character, index) => {
           return (
             <Card key={`${index}-card-main-div`} style={{ width: '18rem' }} className='card w-100 border border-dark rounded'>
               <Card.Img key={`${index}-card-thumb`} variant="top" src={character.thumbnail.path+'.'+character.thumbnail.extension} />
