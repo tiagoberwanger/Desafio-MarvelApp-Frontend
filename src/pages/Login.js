@@ -36,9 +36,9 @@ function Login () {
           history.push('/home');
         })
         .catch((err) =>{
-          if (err && err.response.status === 400) {
-            setError('Usuário não cadastrado!')
-          }
+          // if (err && err.response.status === 400) {
+          //   setError('Usuário não cadastrado!')
+          // }
         })
     } catch (err) {
       console.log(err.message)
