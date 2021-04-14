@@ -10,11 +10,13 @@ import DetailedCom from './components/DetailedCom';
 import DetailedChar from './components/DetailedChar';
 import FavComics from './components/FavComics';
 import FavCharacters from './components/FavCharacters';
+import NotFound from './components/NotFound';
 
 function Routes() {
   return (
     <Router>
       <Switch>
+        <Route exact path="/" component={ Login } />
         <Route path="/login" component={ Login } />
         <Route path="/register" component={ Register } />
         <Route path="/home" component={ Home } />
@@ -25,7 +27,8 @@ function Routes() {
         <Route path="/comics" component={ Comics } />
         <Route path="/characters/:id" component={ DetailedChar } />
         <Route path="/characters" component={ Characters } />
-        <Redirect from="/" to="/login" />
+        <Route path='/404' component={NotFound} />
+        <Redirect from='*' to='/404' />
       </Switch>
     </Router>
   );
