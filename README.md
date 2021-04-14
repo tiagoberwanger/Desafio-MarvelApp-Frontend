@@ -20,6 +20,7 @@
 - [x] Página de detalhes de um character específico
 - [x] Opção de favoritar um comic na tela de detalhes
 - [x] Opção de favoritar um character na tela de detalhes
+- [x] Página 404 não encontrada
 
 # Demonstração da Aplicação
 
