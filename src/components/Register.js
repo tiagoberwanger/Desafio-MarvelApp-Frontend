@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Form, Button, ButtonGroup } from 'react-bootstrap';
 import api from '../services/api';
+const favComics = [];
+const favCharacters = [];
 
 function Register () {
   const history = useHistory();
@@ -22,6 +24,8 @@ function Register () {
       .then((response) => {
         localStorage.setItem('token', JSON.stringify(response.data.token))
         localStorage.setItem('user', JSON.stringify({username, email}))
+        localStorage.setItem('favComics', JSON.stringify(favComics))
+        localStorage.setItem('favCharacters', JSON.stringify(favCharacters))
         history.push('/home');
       })
       .catch((err) =>{
