@@ -10,7 +10,8 @@ function Register () {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [error400, setError400] = useState('');
+  const [error409, setError409] = useState('');
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -30,8 +31,11 @@ function Register () {
       })
       .catch((err) =>{
         console.log(err.message);
+        if (err && err.response.status === 400) {
+          setError400('username, email ou password não seguem as regras!')
+        }
         if (err && err.response.status === 409) {
-          setError('Esse email já foi cadastrado!')
+          setError409('Esse email já foi cadastrado!')
         }
       })
   }
@@ -47,7 +51,6 @@ function Register () {
         <Form.Group className='col-lg-offset-12'>
           {/* <Form.Label htmlFor="email-input">Email</Form.Label> */}
           <Form.Control size="lg" type="email" placeholder="Digite seu email" className="bg-light" onChange={(e) => setEmail(e.target.value)} />
-          <span>{error}</span>
           <Form.Text id="email-help" className="font-weight-bold text-dark">Deve ser um email válido</Form.Text>
         </Form.Group>
         <Form.Group className='col-lg-offset-12'>
@@ -55,6 +58,8 @@ function Register () {
           <Form.Control size="lg" type="password" placeholder="Digite sua senha" className="bg-light" onChange={(e) => setPassword(e.target.value)} />
           <Form.Text id="password-help" className="font-weight-bold text-dark">Deve ter no mínimo 6 caracteres</Form.Text>
         </Form.Group>
+        <span className='text-danger'>{error400}</span>
+        <span className='text-danger'>{error409}</span>
         <ButtonGroup size="lg" vertical>
           <Button variant='info' onClick={(e) => handleClick(e)} >Registrar</Button>
         </ButtonGroup>
