@@ -56,7 +56,7 @@ function Login () {
           <Form.Control size="lg" type="email" placeholder="Digite seu email" onChange={(e) => setEmail(e.target.value)} />
           <Form.Text id="email-help" className="text-muted">Deve ser um email válido</Form.Text>
         </Form.Group>
-          <span>{error}</span>
+          <span className="font-weight-bold text-danger">{error}</span>
         <Form.Group className='col-lg-offset-12'>
           <Form.Label column="lg" htmlFor="password-input">Senha</Form.Label>
           <Form.Control size="lg" type="password" placeholder="Digite sua senha" onChange={(e) => setPassword(e.target.value)} />
