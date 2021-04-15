@@ -31,12 +31,12 @@ function Register () {
       })
       .catch((err) =>{
         console.log(err.message);
-        // if (err && err.response.status === 400) {
-        //   setError400('Regras inválidas!')
-        // }
-        // if (err && err.response.status === 409) {
-        //   setError409('Email já foi cadastrado!')
-        // }
+        if (err && err.response.status === 400) {
+          setError400('Regras inválidas!')
+        }
+        if (err && err.response.status === 409) {
+          setError409('Email já foi cadastrado!')
+        }
       })
   }
 
