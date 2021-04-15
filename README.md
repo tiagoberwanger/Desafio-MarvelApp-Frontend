@@ -24,7 +24,7 @@
 
 # Demonstração da Aplicação
 
-![Marvel App](https://imgur.com/aSAPcwU)
+[Imgur](https://imgur.com/aSAPcwU)
 
 # Pré-requisitos e como rodar a aplicação localmente
 
